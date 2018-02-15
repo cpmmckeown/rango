@@ -21,9 +21,10 @@ from rango import views
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	url(r'^rango/', include('rango.urls')),
-# above maps any URLs starting
-# with rango/ to be handled by
-# the rango application
-    url(r'^admin/', admin.site.urls),
+	# above maps any URLs starting
+	# with rango/ to be handled by
+	# the rango application
+	url(r'^rango/about/', views.about, name='about'),
+	url(r'^admin/', admin.site.urls),
 ]
 
