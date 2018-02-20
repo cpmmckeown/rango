@@ -6,9 +6,18 @@
 {% endblock %}
 	
 	{% block body_block %}
+		<!-- pre-chpt 9
 		<h1>Rango says...</h1> 
 		<div> hey there partner! </div>
+		-->
+		{% if user.is_authenticated %} 
+			<h1> howdy {{ user.username }}! </h1> 
+		{% else %} 
+			<h1> hey there partner! </h1>
+		{% endif %} 
+		<div>
 		<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+		</div>
 		<div>
 		<h3> Most Liked Categories </h3>
 		{% if categories %}

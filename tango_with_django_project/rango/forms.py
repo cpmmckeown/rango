@@ -1,5 +1,8 @@
 from django import forms
-from rango.models import Page, Category
+from django.contrib.auth.models import User 
+#the user object, 'considered to be the core of the 
+#Django authentication system...
+from rango.models import Page, Category, UserProfile
 
 class CategoryForm(forms.ModelForm):
 	name = forms.CharField(max_length=128,
@@ -33,3 +36,19 @@ class PageForm(forms.ModelForm):
 			#exclude = ('category',)
 			#or specify the fields to include i.e.
 			fields = ('title', 'url', 'views')
+			
+class UserForm(forms.ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput())
+	#User models instance contains a password
+	#but it would be visible. Updating the password
+	#attribute can specify charfield instances to 
+	#hide  input
+	class Meta:
+		model = User
+		fields = ('username', 'email', 'password')
+
+			
+class UserProfileForm(forms.ModelForm):
+	class Meta:
+		model = UserProfile
+		fields = ('website', 'picture')
