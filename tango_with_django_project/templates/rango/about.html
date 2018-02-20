@@ -1,3 +1,19 @@
+{% extends 'rango/base.html' %} 
+{% load staticfiles %}
+
+{% block title_block %}
+	{{ category.name }}
+{% endblock %}
+	
+	{% block body_block %}
+		<p> This tutorial has been put together by Conor Mckeown. </p>
+			<img src="{{ MEDIA_URL}}cat.jpg"
+			alt="Picture of a cat" />
+		</div> 
+	{% endblock %}
+
+<!-- saved in case of post chpt 8 errors
+
 <!DOCTYPE html> 
 
 {% load staticfiles %} 
@@ -10,7 +26,7 @@
 		--> 
 		<!-- JavaScript 
 		<script src="{% static "js/jquery.js" %}"></script> 
-		--> 
+		 
 	</head> 
 	
 	<body> 
@@ -19,4 +35,4 @@
 			alt="Picture of a cat" />
 		</div> 
 	</body> 
-</html> 
+</html> -->

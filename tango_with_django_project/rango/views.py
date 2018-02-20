@@ -16,10 +16,14 @@ def index(request):
 	context_dict = {'categories': category_list, 'pages': pages_list}
 	
 	#Render response, send it back
-	return render(request, 'rango/index.html', context_dict)
+	response = render(request, 'rango/index.html', context=context_dict)
+	return response
 	
 def about(request):
-	return render(request, 'rango/about.html')
+	return render(request, 'rango/about.html', {}) 
+	# The '{}' at the end is an empty dictionary because we have 
+	# no additional data to give the template.
+	# p. 106. 
 	
 #adding in the definition for the form from chapter 7
 def add_category(request):

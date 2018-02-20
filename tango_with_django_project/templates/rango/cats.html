@@ -1,0 +1,27 @@
+<ul class="nav nav-pills flex-column">
+<h3> Sidebar </h3> <!-- added to make identifying the sidebar easier -->
+	{% if cats %}
+		{% for c in cats %}
+		    {% if c == act_cat %}
+		        <li class="nav-item"><strong><a href="{% url 'show_category' c.slug %}">{{ c.name }}</a></strong></li>
+		    {% else  %}
+		         <li class="nav-item"><a href="{% url 'show_category' c.slug %}">{{ c.name }}</a></li>
+		    {% endif %}
+		{% endfor %}
+	{% endif %}
+	</ul>
+
+<!-- this is the code from pt 4 of chpt 8 of the book; it did not work
+so I replaced it with the github code
+
+<ul>
+{% if cats %]
+	{% for c in cats %}
+		<li> <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a></li>
+	{% endfor %}
+<!-- else  when this is a tag, this seems to cause the problem!
+	<li> <strong> There are no categories present </strong>
+ endif this too! tagging was removed to stop errors
+</ul>
+
+-->
